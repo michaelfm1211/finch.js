@@ -9,6 +9,12 @@ the documentation for youself below). See this link for more on the original
 Python library and a link to the Python library's documentation:
 https://learn.birdbraintechnologies.com/finch1/python/install
 
+### Install
+Install finch.js through NPM:
+```
+npm install @michaelfm1211/finch.js
+```
+
 ### Documentation
 To generate the documentation, just run jsdoc:
 ```

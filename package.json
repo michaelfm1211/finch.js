@@ -1,5 +1,5 @@
 {
-  "name": "finch",
+  "name": "@michaelfm1211/finch.js",
   "version": "1.0.0",
   "description": "An unofficial library for the Birdbrain Techologies Finch Robot 1.0 using the WebHID API and ES6 modules.",
   "main": "finch.js",
