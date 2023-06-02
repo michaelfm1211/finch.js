@@ -1,0 +1,22 @@
+{
+  "name": "finch",
+  "version": "1.0.0",
+  "description": "An unofficial library for the Birdbrain Techologies Finch Robot 1.0 using the WebHID API and ES6 modules.",
+  "main": "finch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelfm1211/finch.js.git"
+  },
+  "author": "Michael M.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelfm1211/finch.js/issues"
+  },
+  "homepage": "https://github.com/michaelfm1211/finch.js#readme",
+  "devDependencies": {
+    "jsdoc": "^4.0.2"
+  }
+}
