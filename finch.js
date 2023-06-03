@@ -76,9 +76,9 @@ export function wait(sec) {
 }
 
 /**
- * A callback to be run from finch_run()
+ * A callback to be run from run()
  *
- * @callback finch_run_callback
+ * @callback run_callback
  * @async
  */
 
@@ -86,7 +86,7 @@ export function wait(sec) {
  * Wraps an async function to assure the Finch robot is connected before and
  * disconnected after any code runs.
  *
- * @param {finch_run_callback} prog - An asynchronous function callback.
+ * @param {run_callback} prog - An asynchronous function callback.
  *
  * @example
  * // Running both wheels at full speed for one second, then close the
@@ -96,7 +96,7 @@ export function wait(sec) {
  *   await wait(1);
  * });
  */
-export function finch_run(prog) {
+export function run(prog) {
   (async function() {
     // Get device permissions & connnect
     if (!window.device) {
@@ -130,9 +130,9 @@ export function finch_run(prog) {
  *
  * @example
  * // Turn clockwise by setting the left wheel to full speed.
- * await finch_wheels(255, 0);
+ * await wheels(255, 0);
  */
-export function finch_wheels(left, right) {
+export function wheels(left, right) {
   return send('M', [0, left, 0, right]);
 }
 
@@ -146,9 +146,9 @@ export function finch_wheels(left, right) {
  *
  * @example
  * // Play an A4 note (440 Hz) for one second.
- * await finch_buzz(1, 440);
+ * await buzz(1, 440);
  */
-export async function finch_buzz(sec, freq) {
+export async function buzz(sec, freq) {
   await send('B', [((sec * 1000) & 0xFF00) >> 8, (sec * 1000) & 0x00FF,
     (freq & 0xFF00) >> 8], freq && 0xFF);
   await wait(sec);
@@ -166,9 +166,9 @@ export async function finch_buzz(sec, freq) {
  *
  * @example
  * // Set the LED to magenta (RGB value 255, 0, 255).
- * await finch_led(255, 0, 255);
+ * await led(255, 0, 255);
  */
-export function finch_led(r, g, b) {
+export function led(r, g, b) {
   return send('O', [r, g, b]);  
 }
 
@@ -180,11 +180,11 @@ export function finch_led(r, g, b) {
  *
  * @example
  * // Move at full speed forward for one second.
- * await finch_wheels(255, 255);
+ * await wheels(255, 255);
  * await wait(1);
- * await finch_halt();
+ * await halt();
  */
-export function finch_halt() {
+export function halt() {
   return send('X', [0]);
 }
 
@@ -199,14 +199,14 @@ export function finch_halt() {
  *
  * @example
  * // Turn the LED red if there is an obstacle, otherwise green.
- * const obstacles = await finch_get_obstacles();
+ * const obstacles = await get_obstacles();
  * if (obstacles.every(x => x)) {
- *   await finch_led(0, 255, 0);
+ *   await led(0, 255, 0);
  * } else {
- *   await finch_led(255, 0, 0);
+ *   await led(255, 0, 0);
  * }
  */
-export async function finch_get_obstacles() {
+export async function get_obstacles() {
   await send('I', []);
   const data = await recv();
   return data.slice(0, 2).map(x => x === 1);
@@ -221,12 +221,12 @@ export async function finch_get_obstacles() {
  *
  * @example
  * // Move forward if the robot is being tapped.
- * const accel = await finch_get_acceleration();
+ * const accel = await get_acceleration();
  * if (accel.tap) {
- *   await finch_wheels(255, 255);
+ *   await wheels(255, 255);
  * }
  */
-export async function finch_get_acceleration() {
+export async function get_acceleration() {
   // convert finch readings to Gs
   function convAccel(a) {
     if (a > 31) a -= 64
@@ -251,10 +251,10 @@ export async function finch_get_acceleration() {
  *
  * @example
  * // Print the temperature in degrees Fahrenheit.
- * const temp_c = await finch_get_temperature();
+ * const temp_c = await get_temperature();
  * console.log(temp_c * 1.8 + 32);
  */
-export async function finch_get_temperature() {
+export async function get_temperature() {
   await send('T', []);
   const data = await recv();
   return (data[0] - 127) / 2.4 + 25;
@@ -269,7 +269,7 @@ export async function finch_get_temperature() {
  * @async
  * @returns {Promise<number[]>} Status array of the light sensors.
  */
-export async function finch_get_light() {
+export async function get_light() {
   await send('L', []);
   const data = await recv();
   return data.slice(0, 2);
