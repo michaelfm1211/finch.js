@@ -4,10 +4,11 @@ the WebHID API and ES6 modules.
 
 This library is based off of the official Python library for the same robot and
 is mostly compatible. However, values in this library are generally from 0-255
-rather than 0-1. For exact usages, see the finch.js documentation (or generate
-the documentation for youself below). See this link for more on the original
-Python library and a link to the Python library's documentation:
-https://learn.birdbraintechnologies.com/finch1/python/install
+rather than 0-1. For exact usages, see the
+[finch.js documentation](https://michaelfm1211.github.io/finch.js/). See
+[this link](https://learn.birdbraintechnologies.com/finch1/python/install) for
+more on the original Python library and a link to the Python library's
+documentation.
 
 ### Install
 Install finch.js through NPM:
@@ -16,7 +17,10 @@ npm install @michaelfm1211/finch.js
 ```
 
 ### Documentation
-To generate the documentation, just run jsdoc:
+You can find the finch.js documentation online
+[here](https://michaelfm1211.github.io/finch.js/).
+
+Alternatively, you can build the documentation yourself with `jsdoc`
 ```
 jsdoc . README.md
 ```
