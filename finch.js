@@ -86,6 +86,10 @@ export function wait(sec) {
  * Wraps an async function to assure the Finch robot is connected before and
  * disconnected after any code runs.
  *
+ * Because of browser security restrictions, this function call only be called
+ * in response to a user gesture. For example, in the `click` event handler of
+ * a button.
+ *
  * @param {run_callback} prog - An asynchronous function callback.
  *
  * @example
