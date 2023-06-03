@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Global</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Global</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_buzz"><span class="type-signature">(async) </span>finch_buzz<span class="signature">(sec, freq)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Asynchronously runs the robot's buzzer at freq hertz for sec seconds.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sec</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Time in seconds.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>freq</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Frequency in hertz.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line151">line 151</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Play an A4 note (440 Hz) for one second.
+await finch_buzz(1, 440);</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_get_acceleration"><span class="type-signature">(async) </span>finch_get_acceleration<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a promise that resolves with the status of the acceleration sensor.
+as an object.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line229">line 229</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Status of the acceleration sensor.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Move forward if the robot is being tapped.
+const accel = await finch_get_acceleration();
+if (accel.tap) {
+  await finch_wheels(255, 255);
+}</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_get_light"><span class="type-signature">(async) </span>finch_get_light<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;number>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a promise that resolves with the status array of the light sensors.
+The first element is the intensity of the light on the left sensor, and the
+second element is the intensity of the light on the right sensor. Each
+value is from 0 (full darkness) to 255 (full brightness).
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line272">line 272</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Status array of the light sensors.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;number>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_get_obstacles"><span class="type-signature">(async) </span>finch_get_obstacles<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;boolean>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a promise that resolves with the status array of the obstacle
+sensors. The first element is the status of the left obstacle sensor and the
+second element is the status of the right obstacle sensor. Each value is
+either false (no obstacle) or true (obstacle)
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line209">line 209</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The status array of the obstacle sensors.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;boolean>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Turn the LED red if there is an obstacle, otherwise green.
+const obstacles = await finch_get_obstacles();
+if (obstacles.every(x => x)) {
+  await finch_led(0, 255, 0);
+} else {
+  await finch_led(255, 0, 0);
+}</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_get_temperature"><span class="type-signature">(async) </span>finch_get_temperature<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;number>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a promise that resolves with the temperature detected by the robot
+in degrees Celcius.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line257">line 257</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Temperature in degrees Celcius
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Print the temperature in degrees Fahrenheit.
+const temp_c = await finch_get_temperature();
+console.log(temp_c * 1.8 + 32);</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_halt"><span class="type-signature">(async) </span>finch_halt<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Asynchronously halts the robot and stops all commands currently running on
+the robot.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line187">line 187</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Move at full speed forward for one second.
+await finch_wheels(255, 255);
+await wait(1);
+await finch_halt();</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_led"><span class="type-signature">(async) </span>finch_led<span class="signature">(r, g, b)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets the LED light to the color with the RGB value passed. Each component of
+the RGB value is in the range of 0-255.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>r</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Red component of the RGB value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>g</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Green component of the RGB value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Blue component of the RGB value.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line171">line 171</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Set the LED to magenta (RGB value 255, 0, 255).
+await finch_led(255, 0, 255);</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_run"><span class="type-signature"></span>finch_run<span class="signature">(prog)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Wraps an async function to assure the Finch robot is connected before and
+disconnected after any code runs.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prog</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#finch_run_callback">finch_run_callback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An asynchronous function callback.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line99">line 99</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Running both wheels at full speed for one second, then close the
+// connection.
+run(async function() {
+  await wheels(255, 255);
+  await wait(1);
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="finch_wheels"><span class="type-signature">(async) </span>finch_wheels<span class="signature">(left, right)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Asynchronously sets speed of each wheel. 0 is not moving, while 255 is full
+speed.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>left</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Speed of the left wheel from 0 to 255.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>right</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Speed of the right wheel from 0 to 255.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line135">line 135</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Turn clockwise by setting the left wheel to full speed.
+await finch_wheels(255, 0);</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="wait"><span class="type-signature">(async) </span>wait<span class="signature">(sec)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a promise that resolves after sec seconds.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sec</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Time in seconds to resolve after</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line74">line 74</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Print the second string one second after the first;
+console.log('string 1');
+await wait(1);
+console.log('string 2')</code></pre>
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+
+    
+
+    
+    <h4 class="name" id="finch_run_callback"><span class="type-signature">(async) </span>finch_run_callback<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    A callback to be run from finch_run()
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="finch.js.html">finch.js</a>, <a href="finch.js.html#line78">line 78</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#finch_buzz">finch_buzz</a></li><li><a href="global.html#finch_get_acceleration">finch_get_acceleration</a></li><li><a href="global.html#finch_get_light">finch_get_light</a></li><li><a href="global.html#finch_get_obstacles">finch_get_obstacles</a></li><li><a href="global.html#finch_get_temperature">finch_get_temperature</a></li><li><a href="global.html#finch_halt">finch_halt</a></li><li><a href="global.html#finch_led">finch_led</a></li><li><a href="global.html#finch_run">finch_run</a></li><li><a href="global.html#finch_wheels">finch_wheels</a></li><li><a href="global.html#wait">wait</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Jun 03 2023 02:46:38 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
