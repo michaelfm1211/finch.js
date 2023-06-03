@@ -16,7 +16,7 @@ documentation.
 
 ### Install
 Install finch.js through NPM:
-```
+```bash
 npm install @michaelfm1211/finch.js
 ```
 
@@ -25,7 +25,7 @@ You can find the finch.js documentation online
 [here](https://michaelfm1211.github.io/finch.js/).
 
 Alternatively, you can build the documentation yourself with `jsdoc`
-```
+```bash
 jsdoc . README.md
 ```
 
@@ -43,7 +43,7 @@ a user gesture. The easiest way to fufill this requirement is to create a
 the button's `click` event handler.
 
 Here's a quick example to help you get started using finch.js:
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
