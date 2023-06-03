@@ -84,11 +84,9 @@ export function wait(sec) {
 
 /**
  * Wraps an async function to assure the Finch robot is connected before and
- * disconnected after any code runs.
- *
- * Because of browser security restrictions, this function call only be called
- * in response to a user gesture. For example, in the `click` event handler of
- * a button.
+ * disconnected after any code runs. Because of browser security restrictions,
+ * this function call only be called in response to a user gesture. For
+ * example, in the `click` event handler of a button.
  *
  * @param {run_callback} prog - An asynchronous function callback.
  *
@@ -102,7 +100,7 @@ export function wait(sec) {
  */
 export function run(prog) {
   (async function() {
-    // Get device permissions & connnect
+    // Get device permissions & connect
     if (!window.device) {
       const devices = await navigator.hid.requestDevice({ filters: [] });
       window.device = devices[0];
@@ -248,10 +246,10 @@ export async function get_acceleration() {
 
 /**
  * Returns a promise that resolves with the temperature detected by the robot
- * in degrees Celcius.
+ * in degrees Celsius.
  *
  * @async
- * @returns {Promise<number>} Temperature in degrees Celcius
+ * @returns {Promise<number>} Temperature in degrees Celsius
  *
  * @example
  * // Print the temperature in degrees Fahrenheit.
