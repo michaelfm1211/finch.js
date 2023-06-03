@@ -96,7 +96,7 @@ export function wait(sec) {
  *   await wait(1);
  * });
  */
-function finch_run(prog) {
+export function finch_run(prog) {
   (async function() {
     // Get device permissions & connnect
     if (!window.device) {
