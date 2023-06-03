@@ -1,5 +1,5 @@
 # finch.js
-An unoffical library for the Birdbrain Technologies Finch Robot 1.0 using
+An unofficial library for the Birdbrain Technologies Finch Robot 1.0 using
 the WebHID API and ES6 modules.
 
 This library is based off of the official Python library for the same robot and
